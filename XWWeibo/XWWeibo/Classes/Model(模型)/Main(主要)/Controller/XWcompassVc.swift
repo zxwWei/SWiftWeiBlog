@@ -24,6 +24,7 @@ class XWcompassVc: UITableViewController {
     }
     
     private func setupVistorVc(){
+        // 为什么要用XWCompassView呢
         view = XWCompassView()
         view.backgroundColor = UIColor.whiteColor()
     }

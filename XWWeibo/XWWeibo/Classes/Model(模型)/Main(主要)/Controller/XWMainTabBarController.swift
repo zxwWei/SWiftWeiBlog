@@ -76,7 +76,7 @@ class XWMainTabBarController: UITabBarController {
         // image 用图片的大小填充  backgroundImage  填充整个背景
         
         button.setBackgroundImage(UIImage(named: "tabbar_compose_button"), forState: UIControlState.Normal)
-        button.setImage(UIImage(named: "tabbar_compose_button_highlighted"), forState: UIControlState.Highlighted)
+        button.setBackgroundImage(UIImage(named: "tabbar_compose_button_highlighted"), forState: UIControlState.Highlighted)
         
         
         button.setImage(UIImage(named: "tabbar_compose_icon_add"), forState: UIControlState.Normal)
