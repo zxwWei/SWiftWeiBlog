@@ -120,7 +120,7 @@ class XWCompassView: UIView {
     lazy var messageLabel: UILabel = {
         let messageLabel = UILabel()
         
-        messageLabel.text = "想看更多的好东西吗想看更多的好东西吗想看更多的好东西吗想看更多的好东西吗想看更多的好东西吗想看更多的好东西吗"
+        messageLabel.text = "想看更多的好东西吗"
         messageLabel.textColor = UIColor.blackColor()
         
         // 设置分行
