@@ -27,6 +27,7 @@ class XWCompassView: UIView {
         // 往view添加子控件
         addSubview(rotationIconView)
         addSubview(homeView)
+        addSubview(coverImage)
         addSubview(messageLabel)
         addSubview(registerButton)
         addSubview(loginButton)
@@ -35,6 +36,7 @@ class XWCompassView: UIView {
         // 设置约束
         rotationIconView.translatesAutoresizingMaskIntoConstraints = false
         homeView.translatesAutoresizingMaskIntoConstraints = false
+        coverImage.translatesAutoresizingMaskIntoConstraints = false
         messageLabel.translatesAutoresizingMaskIntoConstraints = false
         registerButton.translatesAutoresizingMaskIntoConstraints = false
         loginButton.translatesAutoresizingMaskIntoConstraints = false
@@ -42,59 +44,67 @@ class XWCompassView: UIView {
         
         // 添加约束
         // 转轮 centerX
-        self.addConstraint(NSLayoutConstraint(item: rotationIconView, attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.CenterX, multiplier: 1, constant: 0))
+        addConstraint(NSLayoutConstraint(item: rotationIconView, attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.CenterX, multiplier: 1, constant: 0))
         
-        self.addConstraint(NSLayoutConstraint(item: rotationIconView, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.CenterY, multiplier: 1, constant: -40))
+        addConstraint(NSLayoutConstraint(item: rotationIconView, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.CenterY, multiplier: 1, constant: -40))
+        
         
         // 小房子
-        self.addConstraint(NSLayoutConstraint(item: homeView, attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: rotationIconView, attribute: NSLayoutAttribute.CenterX, multiplier: 1, constant: 0))
+        addConstraint(NSLayoutConstraint(item: homeView, attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: rotationIconView, attribute: NSLayoutAttribute.CenterX, multiplier: 1, constant: 0))
         
-        self.addConstraint(NSLayoutConstraint(item: homeView, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: rotationIconView, attribute: NSLayoutAttribute.CenterY, multiplier: 1, constant: 0))
+        addConstraint(NSLayoutConstraint(item: homeView, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: rotationIconView, attribute: NSLayoutAttribute.CenterY, multiplier: 1, constant: 0))
+        
         
         // 信息
-        self.addConstraint(NSLayoutConstraint(item: messageLabel, attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: homeView, attribute: NSLayoutAttribute.CenterX, multiplier: 1, constant: 0))
+        addConstraint(NSLayoutConstraint(item: messageLabel, attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: homeView, attribute: NSLayoutAttribute.CenterX, multiplier: 1, constant: 0))
         
-        self.addConstraint(NSLayoutConstraint(item: messageLabel, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: homeView, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: 44))
+        addConstraint(NSLayoutConstraint(item: messageLabel, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: homeView, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: 44))
         // 信息的宽度
-        self.addConstraint(NSLayoutConstraint(item: messageLabel, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: 240))
+        addConstraint(NSLayoutConstraint(item: messageLabel, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: 240))
         
-        
-        
+
         // 登陆按钮
         // 左边
-        self.addConstraint(NSLayoutConstraint(item: loginButton, attribute: NSLayoutAttribute.Left, relatedBy: NSLayoutRelation.Equal, toItem: messageLabel, attribute: NSLayoutAttribute.Left, multiplier: 1, constant: 0))
+        addConstraint(NSLayoutConstraint(item: loginButton, attribute: NSLayoutAttribute.Left, relatedBy: NSLayoutRelation.Equal, toItem: messageLabel, attribute: NSLayoutAttribute.Left, multiplier: 1, constant: 0))
         // 顶部
-        self.addConstraint(NSLayoutConstraint(item: loginButton, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: messageLabel, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: 16))
-        
-        
+        addConstraint(NSLayoutConstraint(item: loginButton, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: messageLabel, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: 16))
         // 宽度
-         self.addConstraint(NSLayoutConstraint(item: loginButton, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: 100))
-        
+         addConstraint(NSLayoutConstraint(item: loginButton, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: 100))
         // 高度
-         self.addConstraint(NSLayoutConstraint(item: loginButton, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: 36))
+         addConstraint(NSLayoutConstraint(item: loginButton, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: 36))
         
         
         
         // 注册按钮
         // 右边
-        self.addConstraint(NSLayoutConstraint(item: registerButton, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: messageLabel, attribute: NSLayoutAttribute.Right, multiplier: 1, constant: 0))
+        addConstraint(NSLayoutConstraint(item: registerButton, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: messageLabel, attribute: NSLayoutAttribute.Right, multiplier: 1, constant: 0))
         // 顶部
-        self.addConstraint(NSLayoutConstraint(item: registerButton, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: messageLabel, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: 16))
-        
-        
+        addConstraint(NSLayoutConstraint(item: registerButton, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: messageLabel, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: 16))
         // 宽度
-        self.addConstraint(NSLayoutConstraint(item: registerButton, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: 100))
-        
+        addConstraint(NSLayoutConstraint(item: registerButton, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: 100))
         // 高度
-        self.addConstraint(NSLayoutConstraint(item: registerButton, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: 36))
+        addConstraint(NSLayoutConstraint(item: registerButton, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: 36))
         
-    
+        // 渲染图层
+        // 左边
+        addConstraint(NSLayoutConstraint(item: self.coverImage, attribute: NSLayoutAttribute.Left, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.Left, multiplier: 1, constant: 0))
+        
     }
 
+// MARK: - 不同的控制器显示不同的信息
+    func setupVistorView(message: String, rotationViewName: String){
+        homeView.hidden = true
+        
+        rotationIconView.image = UIImage(named: rotationViewName )
+        messageLabel.text = message;
+        
+    }
+    
+    
 // MARK: - 懒加载
 
     /// 旋转的图像
-    lazy var rotationIconView: UIImageView = {
+    private lazy var rotationIconView: UIImageView = {
         
         let iconView = UIImageView()
         iconView.image = UIImage(named: "visitordiscover_feed_image_smallicon")
@@ -106,7 +116,7 @@ class XWCompassView: UIView {
     }()
     
     /// 小房子
-    lazy var homeView: UIImageView = {
+    private lazy var homeView: UIImageView = {
        let homeView = UIImageView()
         
         homeView.image = UIImage(named: "visitordiscover_feed_image_house")
@@ -117,7 +127,7 @@ class XWCompassView: UIView {
     }()
     
     /// 信息
-    lazy var messageLabel: UILabel = {
+    private lazy var messageLabel: UILabel = {
         let messageLabel = UILabel()
         
         messageLabel.text = "想看更多的好东西吗"
@@ -125,15 +135,14 @@ class XWCompassView: UIView {
         
         // 设置分行
         messageLabel.numberOfLines = 0
+        messageLabel.textAlignment = NSTextAlignment.Center
         messageLabel.sizeToFit()
         
         return messageLabel
         }()
     
-    
-    
     /// 注册按钮
-    lazy var registerButton: UIButton = {
+    private lazy var registerButton: UIButton = {
         let registerButton = UIButton()
         
         registerButton.setBackgroundImage(UIImage(named: "common_button_white_disable"), forState: UIControlState.Normal)
@@ -146,7 +155,7 @@ class XWCompassView: UIView {
         }()
     
     /// 登陆按钮
-    lazy var loginButton: UIButton = {
+    private lazy var loginButton: UIButton = {
         let loginButton = UIButton()
         
         // setBackgroundImage 才会切割
@@ -159,7 +168,7 @@ class XWCompassView: UIView {
         return loginButton
     }()
     
+    /// 渲染图层
+    private lazy var coverImage: UIImageView = UIImageView(image: UIImage(named: "visitordiscover_feed_mask_smallicon"))
     
-    
-
 }

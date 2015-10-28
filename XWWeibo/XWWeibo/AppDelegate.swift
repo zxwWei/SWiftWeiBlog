@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // 设置frame
         window = UIWindow(frame:UIScreen.mainScreen().bounds)
         
-        // ??
+        // ? 有值的时候执行后面的代码
         window?.makeKeyAndVisible()
         
         // 创建tabbar

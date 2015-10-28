@@ -19,13 +19,34 @@ class XWcompassVc: UITableViewController {
     override func loadView() {
         
         // 当登陆成功的时候加载原先的view 不成功的时候加载 自定义的view
-        userLogin ? super.loadView() : setupVistorVc()
+        userLogin ? super.loadView() : setupVistorView()
 
     }
     
-    private func setupVistorVc(){
-        // 为什么要用XWCompassView呢
-        view = XWCompassView()
-        view.backgroundColor = UIColor.whiteColor()
+    private func setupVistorView(){
+        // 为什么要用XWCompassView呢 
+        // 转换成xwcompassView
+        let vistorView = XWCompassView()
+        view = vistorView
+        
+        // 根据控制器的不同显示不同的信息
+        if (self is XWHomeTableVC){
+        
+        }
+        else if (self is XWMessageTableVC){
+            vistorView.setupVistorView("你妹", rotationViewName: "visitordiscover_image_message")
+
+        }
+        else if (self is XWDiscoverTableVC){
+            vistorView.setupVistorView("坑", rotationViewName: "visitordiscover_image_message")
+        }
+        else if (self is XWProfileTableVC){
+            vistorView.setupVistorView("坑爹", rotationViewName: "visitordiscover_image_profile")
+        }
+        
+        //vistorView.backgroundColor = UIColor.whiteColor()
     }
+    
+    
+    
 }
