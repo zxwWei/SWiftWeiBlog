@@ -13,9 +13,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
+        // MARK: - 在一开始的时候设置导航条全局属性
+        UINavigationBar.appearance().tintColor = UIColor.orangeColor()
+            
         // 设置frame
         window = UIWindow(frame:UIScreen.mainScreen().bounds)
         

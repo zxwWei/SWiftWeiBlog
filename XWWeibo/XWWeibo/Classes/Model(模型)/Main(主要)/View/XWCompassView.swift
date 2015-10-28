@@ -8,9 +8,31 @@
 
 import UIKit
 
+// MARK: - 代理协议
+protocol XWCompassViewDelegate: NSObjectProtocol {
+    
+    func vistorWillRegegister()
+    func vistorWillLogin()
+    
+}
+
 class XWCompassView: UIView {
 
+// MARK: - 判断遵守代理的控制器是否遵守代理方法
+    weak var vistorDelegate: XWCompassViewDelegate?
     
+    func willRegister() {
+        // 如果遵守代理执行?后面的方法
+        vistorDelegate?.vistorWillRegegister()
+    }
+    
+    func willLogin() {
+        vistorDelegate?.vistorWillLogin()
+    }
+    
+    
+
+// MARK: - 初始化方法
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -88,6 +110,11 @@ class XWCompassView: UIView {
         // 渲染图层
         // 左边
         addConstraint(NSLayoutConstraint(item: self.coverImage, attribute: NSLayoutAttribute.Left, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.Left, multiplier: 1, constant: 0))
+        addConstraint(NSLayoutConstraint(item: self.coverImage, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.Right, multiplier: 1, constant: 0))
+        addConstraint(NSLayoutConstraint(item: self.coverImage, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.Top, multiplier: 1, constant: 0))
+        // 与注册按钮约定约束
+        addConstraint(NSLayoutConstraint(item: self.coverImage, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: self.registerButton, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: 0))
+        backgroundColor = UIColor(white: 237.0 / 255.0, alpha: 1)
         
     }
 
@@ -97,7 +124,55 @@ class XWCompassView: UIView {
         
         rotationIconView.image = UIImage(named: rotationViewName )
         messageLabel.text = message;
+        // 将子控件放在最下面
+        sendSubviewToBack(coverImage)
+    }
+    
+// MARK: - 旋转方法
+    func rotation(){
         
+        // 创建动画对象
+        let anim = CABasicAnimation()
+        // transform.rotation
+        anim.keyPath = "transform.rotation"
+        anim.toValue = 2 * M_PI
+        anim.repeatCount = MAXFLOAT
+        anim.duration = 20
+        
+        // 完成时不移除动画
+        anim.removedOnCompletion = false
+
+        rotationIconView.layer.addAnimation(anim, forKey: "rotation")
+    }
+    
+    
+    /// 暂停旋转
+    func pauseAnimation() {
+        // 记录暂停时间
+        let pauseTime = rotationIconView.layer.convertTime(CACurrentMediaTime(), fromLayer: nil)
+        
+        // 设置动画速度为0
+        rotationIconView.layer.speed = 0
+        
+        // 设置动画偏移时间
+        rotationIconView.layer.timeOffset = pauseTime
+    }
+    
+    /// 恢复旋转
+    func resumeAnimation() {
+        // 获取暂停时间
+        let pauseTime = rotationIconView.layer.timeOffset
+        
+        // 设置动画速度为1
+        rotationIconView.layer.speed = 1
+        
+        rotationIconView.layer.timeOffset = 0
+        
+        rotationIconView.layer.beginTime = 0
+        
+        let timeSincePause = rotationIconView.layer.convertTime(CACurrentMediaTime(), fromLayer: nil) - pauseTime
+        
+        rotationIconView.layer.beginTime = timeSincePause
     }
     
     
@@ -148,6 +223,7 @@ class XWCompassView: UIView {
         registerButton.setBackgroundImage(UIImage(named: "common_button_white_disable"), forState: UIControlState.Normal)
         registerButton.setTitle("登陆", forState: UIControlState.Normal)
         registerButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+        registerButton.addTarget(self , action: "willRegister", forControlEvents: UIControlEvents.TouchUpInside)
         
         registerButton.sizeToFit()
         
@@ -162,7 +238,7 @@ class XWCompassView: UIView {
         loginButton.setBackgroundImage(UIImage(named: "common_button_white_disable"), forState: UIControlState.Normal)
         loginButton.setTitle("注册", forState: UIControlState.Normal)
         loginButton.setTitleColor(UIColor.orangeColor(), forState: UIControlState.Normal)
-
+        loginButton.addTarget(self , action: "willLogin", forControlEvents: UIControlEvents.TouchUpInside)
         loginButton.sizeToFit()
         
         return loginButton
@@ -170,5 +246,14 @@ class XWCompassView: UIView {
     
     /// 渲染图层
     private lazy var coverImage: UIImageView = UIImageView(image: UIImage(named: "visitordiscover_feed_mask_smallicon"))
-    
 }
+
+// MARK: - 登陆及注册代理方法
+
+
+
+
+
+
+
+
