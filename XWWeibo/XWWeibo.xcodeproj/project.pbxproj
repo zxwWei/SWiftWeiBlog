@@ -18,6 +18,7 @@
 		1847A5731BE0F01F005036E0 /* XWAFNTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1847A5721BE0F01F005036E0 /* XWAFNTool.swift */; settings = {ASSET_TAGS = (); }; };
 		18ADCA601BDE0921006D7174 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ADCA5F1BDE0921006D7174 /* AppDelegate.swift */; };
 		18ADCA671BDE0921006D7174 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18ADCA661BDE0921006D7174 /* Assets.xcassets */; };
+		18CB0FCA1BE24F2A009A5162 /* XWUserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CB0FC91BE24F2A009A5162 /* XWUserAccount.swift */; settings = {ASSET_TAGS = (); }; };
 		BC98E88AD7A3787820C9680A /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54008FB4FE193B99973D951F /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		18ADCA5F1BDE0921006D7174 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18ADCA661BDE0921006D7174 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18ADCA6B1BDE0922006D7174 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18CB0FC91BE24F2A009A5162 /* XWUserAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XWUserAccount.swift; sourceTree = "<group>"; };
 		54008FB4FE193B99973D951F /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		94C5B82C7CDB65B65A79DD5F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C576B7DAE453E404FD7E82D2 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -55,20 +57,13 @@
 		1846E99C1BDE3AF9008B2145 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				1846E9B71BDE3C30008B2145 /* Extenxion(延伸) */,
-				1846E9B81BDE3C30008B2145 /* Module(公共模型) */,
-				1846E99D1BDE3AF9008B2145 /* Library(第三方库) */,
+				18CB0FC61BE24F15009A5162 /* Extension(延伸) */,
+				18CB0FC71BE24F15009A5162 /* LIbrary(第三方库) */,
+				18CB0FC81BE24F15009A5162 /* Module(公共模型) */,
 				1846E99F1BDE3AF9008B2145 /* Model(模型) */,
 				1846E9B41BDE3AF9008B2145 /* Tool(工具) */,
 			);
 			path = Classes;
-			sourceTree = "<group>";
-		};
-		1846E99D1BDE3AF9008B2145 /* Library(第三方库) */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Library(第三方库)";
 			sourceTree = "<group>";
 		};
 		1846E99F1BDE3AF9008B2145 /* Model(模型) */ = {
@@ -254,20 +249,6 @@
 			path = "Tool(工具)";
 			sourceTree = "<group>";
 		};
-		1846E9B71BDE3C30008B2145 /* Extenxion(延伸) */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Extenxion(延伸)";
-			sourceTree = "<group>";
-		};
-		1846E9B81BDE3C30008B2145 /* Module(公共模型) */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Module(公共模型)";
-			sourceTree = "<group>";
-		};
 		1847A56E1BE0E39C005036E0 /* Oauth(Oauth授权) */ = {
 			isa = PBXGroup;
 			children = (
@@ -311,6 +292,28 @@
 				18ADCA6B1BDE0922006D7174 /* Info.plist */,
 			);
 			path = XWWeibo;
+			sourceTree = "<group>";
+		};
+		18CB0FC61BE24F15009A5162 /* Extension(延伸) */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Extension(延伸)";
+			sourceTree = "<group>";
+		};
+		18CB0FC71BE24F15009A5162 /* LIbrary(第三方库) */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "LIbrary(第三方库)";
+			sourceTree = "<group>";
+		};
+		18CB0FC81BE24F15009A5162 /* Module(公共模型) */ = {
+			isa = PBXGroup;
+			children = (
+				18CB0FC91BE24F2A009A5162 /* XWUserAccount.swift */,
+			);
+			path = "Module(公共模型)";
 			sourceTree = "<group>";
 		};
 		55FE43C264AD48AC73424AB6 /* Frameworks */ = {
@@ -451,6 +454,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18CB0FCA1BE24F2A009A5162 /* XWUserAccount.swift in Sources */,
 				1846E9BE1BDE3D02008B2145 /* XWHomeTableVC.swift in Sources */,
 				1846E9C41BDE4202008B2145 /* XWMainTabBarController.swift in Sources */,
 				1846E9C01BDE3D1C008B2145 /* XWDiscoverTableVC.swift in Sources */,

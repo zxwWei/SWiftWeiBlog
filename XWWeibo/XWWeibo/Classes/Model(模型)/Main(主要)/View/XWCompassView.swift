@@ -50,7 +50,7 @@ class XWCompassView: UIView {
         addSubview(rotationIconView)
         addSubview(coverImage)
         addSubview(homeView)
-        addSubview(coverImage)
+//      addSubview(coverImage)
         addSubview(messageLabel)
         addSubview(registerButton)
         addSubview(loginButton)

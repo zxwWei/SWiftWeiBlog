@@ -73,15 +73,12 @@ class XWcompassVc: UITableViewController{
     }
 }
 
-// MARK: - 代理方法的实现  放在控制器外
-
+// MARK: - 延伸 代理方法的实现  放在控制器外
 extension XWcompassVc: XWCompassViewDelegate {
-    
     
     func vistorWillRegegister() {
         print("vistorWillRegegister")
     }
-    
     
     func vistorWillLogin() {
         //print("vistorWillLogin")
