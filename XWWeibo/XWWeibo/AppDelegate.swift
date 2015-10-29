@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // ? 有值的时候执行后面的代码
         window?.makeKeyAndVisible()
-        
+        print("初始化")
         // 创建tabbar
         let tabBarVc = XWMainTabBarController()
         

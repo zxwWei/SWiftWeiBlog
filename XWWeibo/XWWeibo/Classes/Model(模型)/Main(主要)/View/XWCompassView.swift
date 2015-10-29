@@ -47,9 +47,9 @@ class XWCompassView: UIView {
     func prepareUi() {
     
         // 往view添加子控件
-        addSubview(homeView)
-        addSubview(coverImage)
         addSubview(rotationIconView)
+        addSubview(coverImage)
+        addSubview(homeView)
         addSubview(coverImage)
         addSubview(messageLabel)
         addSubview(registerButton)
