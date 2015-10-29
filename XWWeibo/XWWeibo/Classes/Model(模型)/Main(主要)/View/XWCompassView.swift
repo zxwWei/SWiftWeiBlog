@@ -47,8 +47,9 @@ class XWCompassView: UIView {
     func prepareUi() {
     
         // 往view添加子控件
-        addSubview(rotationIconView)
         addSubview(homeView)
+        addSubview(coverImage)
+        addSubview(rotationIconView)
         addSubview(coverImage)
         addSubview(messageLabel)
         addSubview(registerButton)
@@ -87,7 +88,7 @@ class XWCompassView: UIView {
 
         // 登陆按钮
         // 左边
-        addConstraint(NSLayoutConstraint(item: loginButton, attribute: NSLayoutAttribute.Left, relatedBy: NSLayoutRelation.Equal, toItem: messageLabel, attribute: NSLayoutAttribute.Left, multiplier: 1, constant: 0))
+        addConstraint(NSLayoutConstraint(item: loginButton, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: messageLabel, attribute: NSLayoutAttribute.Right, multiplier: 1, constant: 0))
         // 顶部
         addConstraint(NSLayoutConstraint(item: loginButton, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: messageLabel, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: 16))
         // 宽度
@@ -99,7 +100,7 @@ class XWCompassView: UIView {
         
         // 注册按钮
         // 右边
-        addConstraint(NSLayoutConstraint(item: registerButton, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: messageLabel, attribute: NSLayoutAttribute.Right, multiplier: 1, constant: 0))
+        addConstraint(NSLayoutConstraint(item: registerButton, attribute: NSLayoutAttribute.Left, relatedBy: NSLayoutRelation.Equal, toItem: messageLabel, attribute: NSLayoutAttribute.Left, multiplier: 1, constant: 0))
         // 顶部
         addConstraint(NSLayoutConstraint(item: registerButton, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: messageLabel, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: 16))
         // 宽度
@@ -221,7 +222,7 @@ class XWCompassView: UIView {
         let registerButton = UIButton()
         
         registerButton.setBackgroundImage(UIImage(named: "common_button_white_disable"), forState: UIControlState.Normal)
-        registerButton.setTitle("登陆", forState: UIControlState.Normal)
+        registerButton.setTitle("注册", forState: UIControlState.Normal)
         registerButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
         registerButton.addTarget(self , action: "willRegister", forControlEvents: UIControlEvents.TouchUpInside)
         
@@ -236,7 +237,7 @@ class XWCompassView: UIView {
         
         // setBackgroundImage 才会切割
         loginButton.setBackgroundImage(UIImage(named: "common_button_white_disable"), forState: UIControlState.Normal)
-        loginButton.setTitle("注册", forState: UIControlState.Normal)
+        loginButton.setTitle("登陆", forState: UIControlState.Normal)
         loginButton.setTitleColor(UIColor.orangeColor(), forState: UIControlState.Normal)
         loginButton.addTarget(self , action: "willLogin", forControlEvents: UIControlEvents.TouchUpInside)
         loginButton.sizeToFit()

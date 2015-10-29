@@ -9,7 +9,7 @@
 // MARK: - 让所有的四个控制器继承自它，让它们没登陆的时候都实现如下业务逻辑 显示这个界面
 import UIKit
 
-class XWcompassVc: UITableViewController,XWCompassViewDelegate {
+class XWcompassVc: UITableViewController{
 
 
     var userLogin = false
@@ -71,10 +71,13 @@ class XWcompassVc: UITableViewController,XWCompassViewDelegate {
     func didBecomeActive(){
         (view as! XWCompassView).resumeAnimation()
     }
+}
+
+// MARK: - 代理方法的实现  放在控制器外
+
+extension XWcompassVc: XWCompassViewDelegate {
     
     
-    
-// MARK: - 代理方法的实现
     func vistorWillRegegister() {
         print("vistorWillRegegister")
     }
@@ -87,6 +90,4 @@ class XWcompassVc: UITableViewController,XWCompassViewDelegate {
         presentViewController(UINavigationController(rootViewController: loginVc), animated: true, completion: nil)
         
     }
-    
-    
 }
